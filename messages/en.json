@@ -16,5 +16,8 @@
     },
     "Cart":{
         "title":"Cart History"
+    },
+    "ProductDetails":{
+        "title":"Product Details"
     }
 }

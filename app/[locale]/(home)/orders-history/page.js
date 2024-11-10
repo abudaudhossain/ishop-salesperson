@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 
 
-export default function Home() {
+export default function OrderHistory() {
     const t = useTranslations("OrderHistory")
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">

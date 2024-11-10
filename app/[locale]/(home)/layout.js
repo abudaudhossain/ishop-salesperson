@@ -12,15 +12,15 @@ const inter = Inter({ subsets: ["latin"] });
 // };
 
 export default async function RootLayout({ children }) {
-    const messages = await getMessages();
-    return (
-        <html lang="en">
-            <body className={inter.className}>
-                <NextIntlClientProvider messages={messages}>
-                    <Navbar />
-                    {children}
-                </NextIntlClientProvider>
-            </body>
-        </html>
-    );
+  const messages = await getMessages();
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <NextIntlClientProvider messages={messages}>
+          <Navbar />
+          {children}
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
 }
