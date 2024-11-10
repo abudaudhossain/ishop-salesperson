@@ -27,8 +27,8 @@ const menuItems = [
 
 const Navbar = () => {
   return (
-    <nav className="fixed inset-x-0 bottom-0 bg-gray-800 text-white p-4">
-      <div className="py-0.5 bg-neutral-500 ">
+    <nav className="fixed inset-x-0 bottom-0 bg-gray-800 text-white p-4 flex items-center justify-center">
+      <div className="py-0.5 ">
         {menuItems.map((item, index) => (
           <Link key={index} href={item.route} className="p-2">
             {item.label}
