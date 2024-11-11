@@ -1,5 +1,8 @@
 {
     "HomePage": {
+        "page":"Home",
+        "greeting":"Hi",
+        "greetingMessage":"Start Your working",
         "title": "Hello world!",
         "about": "Go to the about page"
     },
