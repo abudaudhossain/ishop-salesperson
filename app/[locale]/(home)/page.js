@@ -27,15 +27,15 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div class="relative w-full max-w-xl mx-auto bg-white rounded-full ">
+      <div className="relative w-full max-w-xl mx-auto bg-white rounded-full ">
         <Link href="/products">
           <input
             placeholder="Select to product..."
             className="rounded-full w-full h-12 bg-transparent py-1 pl-8 pr-32 outline-none border-1 border-gray-100  shadow-secondary-1 hover:outline-none focus:ring-teal-200 focus:border-teal-200"
           />
-          <button class="absolute inline-flex items-center h-10 px-4 py-2 text-sm text-white transition duration-150 ease-in-out rounded-full outline-none right-[8px] top-[4px] bg-teal-600 sm:px-6 sm:text-base sm:font-medium hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+          <button className="absolute inline-flex items-center h-10 px-4 py-2 text-sm text-white transition duration-150 ease-in-out rounded-full outline-none right-[8px] top-[4px] bg-teal-600 sm:px-6 sm:text-base sm:font-medium hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
             <svg
-              class="-ml-0.5 sm:-ml-1 mr-2 w-4 h-4 sm:h-5 sm:w-5"
+              className="-ml-0.5 sm:-ml-1 mr-2 w-4 h-4 sm:h-5 sm:w-5"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -47,9 +47,9 @@ export default function Home() {
           </button>
         </Link>
       </div>
-      <button class=" inline-flex  items-center justify-center  rounded-full w-full h-12 px-4 py-2 my-4 text-sm text-white transition duration-150 ease-in-out rounded-full outline-none bg-teal-600 sm:px-6 sm:text-base sm:font-medium hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+      <button className=" inline-flex  items-center justify-center  rounded-full w-full h-12 px-4 py-2 my-4 text-sm text-white transition duration-150 ease-in-out rounded-full outline-none bg-teal-600 sm:px-6 sm:text-base sm:font-medium hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
         <svg
-          class="-ml-0.5 sm:-ml-1 mr-2 w-4 h-4 sm:h-5 sm:w-5"
+          className="-ml-0.5 sm:-ml-1 mr-2 w-4 h-4 sm:h-5 sm:w-5"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"

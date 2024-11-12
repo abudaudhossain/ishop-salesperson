@@ -1,16 +1,21 @@
 "use client";
+import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const data = [
-  { value: "bitcoin (BTC)", image: "https://cdn.cryptodisplay.net/cryptos/bitcoin.png" },
-  { value: "ethereum (ETH)", image: "https://cdn.cryptodisplay.net/cryptos/ethereum.png" },
-  { value: "cardano (ADA)", image: "https://cdn.cryptodisplay.net/cryptos/cardano.png" },
-  { value: "xrp (XRP)", image: "https://cdn.cryptodisplay.net/cryptos/ripple.png" },
-  { value: "dogecoin (DOGE)", image: "https://cdn.cryptodisplay.net/cryptos/dogecoin.png" },
-  { value: "chainlink (LINK)", image: "https://cdn.cryptodisplay.net/cryptos/chainlink.png" },
-  { value: "litecoin (LTC)", image: "https://cdn.cryptodisplay.net/cryptos/litecoin.png" },
-  { value: "bitcoin cash (BCH)", image: "https://cdn.cryptodisplay.net/cryptos/bitcoin-cash.png" },
-  { value: "stellar (XLM)", image: "https://cdn.cryptodisplay.net/cryptos/stellar.png" },
+  {
+    id: 1,
+    image: "https://res.cloudinary.com/dkioxcw3q/image/upload/v1731421037/lmon-800_rea0zd.webp",
+    title: "Lifebuoy Soap Bar Lemon Fresh",
+    description:
+      "Experience a refreshing shower every day with LIFEBUOY Lemon Fresh Soap Bar. It rejuvenates your senses keeping you fresh throughout the day. Formulated with an efficient cleansing property of lemons, this soap bar is packed with natural antibacterial properties. This disinfectant soap protects your skin from disease-causing bacteria and ensures better germ protection for you and your family. The fragrance will leave you thoroughly fresh.",
+    unitPrice: 50,
+    currency: "BDT",
+    currencySign: "৳",
+    unit: "gm",
+    unitSize: "100",
+  },
 ];
 
 const Products = () => {
@@ -32,15 +37,16 @@ const Products = () => {
 
   return (
     <div className="min-h-screen max-w-[600px] m-auto px-4 pt-4">
-      <div className="">
-        <div className="rounded-xl ">
+      <div className="relative">
+        {/* Fixed search input */}
+        <div className="fixed top-0 left-0 w-full bg-white z-10 p-4 shadow-md">
           <div className="relative">
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search..."
-              className="rounded-full w-full h-12 bg-transparent py-1 pl-8 pr-32 outline-none border-1 border-gray-100  shadow-secondary-1 hover:outline-none focus:ring-teal-200 focus:border-teal-200 hover:bg-[#605CEB] hover:bg-opacity-20"
+              className="w-full h-12 py-1 pl-4 pr-32 outline-none focus:ring-none focus:border-none"
             />
             {searchTerm && (
               <button
@@ -51,24 +57,38 @@ const Products = () => {
               </button>
             )}
           </div>
-          <ul id="content">
-            {filteredData.map((item, index) => (
-              <li
-                key={index}
-                className={`flex items-center justify-between gap-4 my-1 p-4 cursor-pointer hover:bg-[#605CEB] hover:bg-opacity-20 transition-colors rounded-lg bg-white p-6 text-surface shadow-secondary-1 text-center`}
-              >
-                <div className="flex items-center gap-4">
-                  <img src={item.image} alt={item.value} width="30" className="rounded-full" />
-                  <div>
-                    <h1 className="font-semibold">{item.value}</h1>
-                    <p className="">{item.value}</p>
+        </div>
+
+        {/* Content section with top margin to offset the fixed search bar */}
+        <ul id="content" className="pt-20 mb-20">
+          {filteredData.length < 1 ? (
+            <h2>Products Not Found</h2>
+          ) : (
+            filteredData.map((item) => (
+              <Link key={item.id} href={`/products/${item.id}`}>
+                <div key={item.id} className="flex items-center bg-white p-4 rounded-lg shadow-md mb-4">
+                  <div className="relative w-24 h-24">
+                    <Image src={item.image} alt={item.title} layout="fill" objectFit="cover" className="rounded" />
+                  </div>
+
+                  <div className="ml-4 flex-1">
+                    <h2 className="text-xl font-semibold">{item.title}</h2>
+                    <p className="text-gray-600">
+                      {item.unitSize} {item.unit}
+                    </p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-lg font-semibold">
+                      {item.currencySign}
+                      {item.unitPrice}
+                      <span className="ml-1 text-gray-600">{item.currency}</span>
+                    </p>
                   </div>
                 </div>
-                <h1>120 tk</h1>
-              </li>
-            ))}
-          </ul>
-        </div>
+              </Link>
+            ))
+          )}
+        </ul>
       </div>
     </div>
   );
