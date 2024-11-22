@@ -1,4 +1,5 @@
 "use client";
+import BackButton from "@/app/components/BackButton";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -25,9 +26,16 @@ const ProductDetail = () => {
 
   return (
     <div className="min-h-screen max-w-[600px] m-auto px-4 pt-4">
-      <div className="rounded-lg overflow-hidden">
+      <BackButton />
+      <div className="rounded-lg overflow-hidden mt-4">
         <div className="">
-          <Image src={product.image} alt={product.title} width={500} height={500} className="w-full h-80 object-cover" />
+          <Image
+            src={product.image}
+            alt={product.title}
+            width={500}
+            height={500}
+            className="w-full h-80 object-cover"
+          />
         </div>
         <div className="p-4">
           <h2 className="text-2xl font-semibold text-gray-800">{product.title}</h2>
@@ -51,11 +59,19 @@ const ProductDetail = () => {
 
             {/* Quantity Controls */}
             <div className="flex items-center mt-4">
-              <button onClick={handleDecrement} className="px-3 py-1 bg-teal-600 text-white font-bold rounded-l focus:outline-none hover:bg-teal-700">
+              <button
+                onClick={handleDecrement}
+                className="px-3 py-1 bg-teal-600 text-white font-bold rounded-l focus:outline-none hover:bg-teal-700"
+              >
                 -
               </button>
-              <span className="px-4 py-1 border-t border-b border-gray-300 text-gray-800 font-medium">{quantity}</span>
-              <button onClick={handleIncrement} className="px-3 py-1 bg-teal-600 text-white font-bold rounded-r focus:outline-none hover:bg-teal-700">
+              <span className="px-4 py-1 border-t border-b border-gray-300 text-gray-800 font-medium">
+                {quantity}
+              </span>
+              <button
+                onClick={handleIncrement}
+                className="px-3 py-1 bg-teal-600 text-white font-bold rounded-r focus:outline-none hover:bg-teal-700"
+              >
                 +
               </button>
             </div>

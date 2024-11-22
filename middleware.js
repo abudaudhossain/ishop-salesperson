@@ -58,5 +58,5 @@ export async function middleware(request) {
 
 // Middleware configuration
 export const config = {
-  matcher: ["/", "/(de|en)/:path*", "/orders-history", "/login", "/products", "/products/:path*", "/cart"],
+  matcher: ["/", "/(de|en)/:path*", "/orders", "/login", "/products", "/products/:path*", "/cart"],
 };

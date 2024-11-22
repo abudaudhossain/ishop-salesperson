@@ -26,7 +26,7 @@ const Products = () => {
     if (searchTerm === "") {
       setFilteredData(data);
     } else {
-      const results = data.filter((item) => item.value.toLowerCase().includes(searchTerm.toLowerCase()));
+      const results = data?.filter((item) => item.value?.toLowerCase()?.includes(searchTerm?.toLowerCase()));
       setFilteredData(results);
     }
   }, [searchTerm]);

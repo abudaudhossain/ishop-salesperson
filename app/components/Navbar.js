@@ -8,7 +8,7 @@ const menuItems = [
   },
   {
     label: "Orders",
-    route: "/orders-history",
+    route: "/orders",
   },
   {
     label: "products",
