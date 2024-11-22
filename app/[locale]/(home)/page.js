@@ -1,3 +1,4 @@
+import Scanner from "@/app/components/Scanner";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 
@@ -59,6 +60,7 @@ export default function Home() {
         </svg>
         Scan product
       </button>
+      <Scanner />
     </main>
   );
 }
