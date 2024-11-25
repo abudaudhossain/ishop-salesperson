@@ -1,13 +1,18 @@
 "use client";
 import AddToCartBtn from "@/app/components/AddToCartBtn";
 import QuantityControllers from "@/app/components/QuantityControllers";
+import { useStore } from "@/lib/context/StoreContext";
 import React, { useState } from "react";
 
 const AddToCart = ({ product }) => {
+  const { cart, setCart } = useStore();
   const [quantity, setQuantity] = useState(1);
+
   const addToCartHandler = (item) => {
-    console.log("add to cart", item);
+    
+    setCart([...cart, item]);
   };
+
   return (
     <>
       <div className="flex justify-between items-center">

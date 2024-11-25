@@ -8,16 +8,17 @@ const Products = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState(() => list().data);
 
-  // useEffect(() => {
-  //   if (searchTerm === "") {
-  //     setFilteredData(data);
-  //   } else {
-  //     const results = data?.filter((item) =>
-  //       item.value?.toLowerCase()?.includes(searchTerm?.toLowerCase())
-  //     );
-  //     setFilteredData(results);
-  //   }
-  // }, [searchTerm]);
+  useEffect(() => {
+    if (searchTerm === "") {
+      setFilteredData(list().data);
+    } else {
+      const results = list().data?.filter((item) =>
+        item.title?.toLowerCase()?.includes(searchTerm?.toLowerCase())
+      );
+
+      setFilteredData(results);
+    }
+  }, [searchTerm]);
 
   const handleClear = () => {
     setSearchTerm("");
