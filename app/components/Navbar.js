@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import React from "react";
 
@@ -26,6 +27,7 @@ const menuItems = [
 ];
 
 const Navbar = () => {
+
   return (
     <nav className="fixed inset-x-0 bottom-0 bg-gray-800 text-white p-4 flex items-center justify-center z-10">
       <div className="py-0.5 ">
@@ -34,6 +36,7 @@ const Navbar = () => {
             {item.label}
           </Link>
         ))}
+       
       </div>
     </nav>
   );

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "../../globals.css";
 import Navbar from "../../components/Navbar";
 import { getMessages } from "next-intl/server";
+import { StoreProvider } from "@/lib/context/StoreContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,8 +18,10 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <NextIntlClientProvider messages={messages}>
-          <Navbar />
-          {children}
+          <StoreProvider>
+            <Navbar />
+            {children}
+          </StoreProvider>
         </NextIntlClientProvider>
       </body>
     </html>
