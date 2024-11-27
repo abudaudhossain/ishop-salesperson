@@ -2,15 +2,19 @@
 import AddToCartBtn from "@/app/components/AddToCartBtn";
 import QuantityControllers from "@/app/components/QuantityControllers";
 import { useStore } from "@/lib/context/StoreContext";
+import addToCart from "@/lib/utility/addToCart";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const AddToCart = ({ product }) => {
+  const router = useRouter();
   const { cart, setCart } = useStore();
   const [quantity, setQuantity] = useState(1);
 
   const addToCartHandler = (item) => {
-    
-    setCart([...cart, item]);
+    const newCart = addToCart([...cart], item);
+    setCart([...newCart]);
+    router.push("/cart");
   };
 
   return (

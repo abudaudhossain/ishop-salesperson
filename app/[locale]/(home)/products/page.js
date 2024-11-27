@@ -1,4 +1,7 @@
 "use client";
+import AddToCartBtn from "@/app/components/AddToCartBtn";
+import Product from "@/app/components/Product";
+import QuantityControllers from "@/app/components/QuantityControllers";
 import list from "@/lib/api/products";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +10,7 @@ import { useState, useEffect } from "react";
 const Products = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState(() => list().data);
-
+  const [quantity, setQuantity] = useState(1);
   useEffect(() => {
     if (searchTerm === "") {
       setFilteredData(list().data);
@@ -53,40 +56,7 @@ const Products = () => {
           {filteredData.length < 1 ? (
             <h2>Products Not Found</h2>
           ) : (
-            filteredData?.map((item) => (
-              <Link key={item.id} href={`/products/${item.id}`}>
-                <div
-                  key={item.id}
-                  className="flex items-center bg-white p-4 rounded-lg shadow-md mb-4"
-                >
-                  <div className="relative w-24 h-24">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      layout="fill"
-                      objectFit="cover"
-                      className="rounded"
-                    />
-                  </div>
-
-                  <div className="ml-4 flex-1">
-                    <h2 className="text-xl font-semibold">{item.title}</h2>
-                    <p className="text-gray-600">
-                      {item.unitSize} {item.unit}
-                    </p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-lg font-semibold">
-                      {item.currencySign}
-                      {item.unitPrice}
-                      <span className="ml-1 text-gray-600">
-                        {item.currency}
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </Link>
-            ))
+            filteredData?.map((item) => <Product  key={item.id} product={item} />)
           )}
         </ul>
       </div>
