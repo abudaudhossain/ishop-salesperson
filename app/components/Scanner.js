@@ -1,11 +1,15 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { Html5QrcodeScanner } from "html5-qrcode";
+import { useStore } from "@/lib/context/StoreContext";
+import addToCart from "@/lib/utility/addToCart";
 
 const Scanner = () => {
+  const { products, cart, setCart } = useStore();
   const [scanning, setScanning] = useState(false);
   const [result, setResult] = useState("");
   const scannerRef = useRef(null);
+  const timeoutRef = useRef(null);
 
   const startScanner = () => {
     setScanning(true);
@@ -31,6 +35,11 @@ const Scanner = () => {
       scanner.render(
         (decodedText) => {
           setResult(decodedText);
+
+          setTimeout(() => {
+            setResult(null);
+          }, 5000);
+
           // setScanning(false);
           // scanner.clear();
         },
@@ -46,6 +55,24 @@ const Scanner = () => {
       };
     }
   }, [scanning]);
+
+  useEffect(() => {
+    if (result) {
+      let product = products.find((item) => item.sku === result);
+      const newCart = addToCart([...cart], { ...product, quantity: 1 });
+      setCart([...newCart]);
+
+      timeoutRef.current = setTimeout(() => {
+        setResult(null);
+      }, 5000);
+    }
+
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [result]);
 
   return (
     <>

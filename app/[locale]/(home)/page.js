@@ -1,3 +1,4 @@
+import GetAllProducts from "@/app/components/GetAllProducts";
 import Scanner from "@/app/components/Scanner";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -56,6 +57,8 @@ export default function Home() {
         </Link>
       </div>
         <Scanner />
+
+        <GetAllProducts />
     </main>
   );
 }

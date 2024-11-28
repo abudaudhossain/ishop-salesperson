@@ -2,20 +2,20 @@
 import AddToCartBtn from "@/app/components/AddToCartBtn";
 import Product from "@/app/components/Product";
 import QuantityControllers from "@/app/components/QuantityControllers";
-import list from "@/lib/api/products";
+import getProductList from "@/lib/api/products";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const Products = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredData, setFilteredData] = useState(() => list().data);
+  const [filteredData, setFilteredData] = useState(() => getProductList().data);
   const [quantity, setQuantity] = useState(1);
   useEffect(() => {
     if (searchTerm === "") {
-      setFilteredData(list().data);
+      setFilteredData(getProductList().data);
     } else {
-      const results = list().data?.filter((item) =>
+      const results = getProductList().data?.filter((item) =>
         item.title?.toLowerCase()?.includes(searchTerm?.toLowerCase())
       );
 
