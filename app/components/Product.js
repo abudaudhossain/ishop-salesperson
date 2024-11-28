@@ -48,16 +48,17 @@ const Product = ({ product }) => {
       <div className="text-right">
         <p className="text-lg font-semibold">
           {product.currencySign}
-          {product.unitPrice}
+          {product.unitPrice * quantity}
           <span className="ml-1 text-gray-600">{product.currency}</span>
         </p>
         <QuantityControllers quantity={quantity} setQuantity={setQuantity} />
         <AddToCartBtn
           addToCartHandler={(e) => {
             e.stopPropagation();
-            return addToCartHandler({ ...product, quantity });
+            // return addToCartHandler({ ...product, quantity });
           }}
-          className="font-base h-9 px-4 my-4 text-sm mb-0"
+          className="font-base  px-4  py-1 text-sm mb-0 cursor-not-allowed "
+          
         />
       </div>
     </div>

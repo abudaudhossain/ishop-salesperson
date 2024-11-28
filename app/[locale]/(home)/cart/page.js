@@ -29,7 +29,7 @@ const Cart = () => {
 
   return (
     <div className="min-h-screen max-w-[600px] m-auto px-4 pt-4 mb-16">
-      <h1 className="text-3xl font-semibold mb-6">Your Cart</h1>
+      <h1 className="text-2xl font-semibold mb-6">Your Cart</h1>
 
       {cart.length > 0 ? (
         <div>
@@ -73,7 +73,7 @@ const Cart = () => {
 
           {/* Total Price */}
           <div className="text-right mt-6">
-            <p className="text-2xl font-semibold">
+            <p className="text-xl font-semibold">
               Total: {cart[0].currencySign}
               {calculateTotal()}
             </p>

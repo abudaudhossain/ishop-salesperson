@@ -4,7 +4,8 @@ import { Html5QrcodeScanner } from "html5-qrcode";
 import { useStore } from "@/lib/context/StoreContext";
 import addToCart from "@/lib/utility/addToCart";
 import Image from "next/image";
-import Cart from "./Cart";
+import Cart from "../[locale]/(home)/cart/page";
+// import Cart from "./Cart";
 
 const Scanner = () => {
   const { products, cart, setCart } = useStore();

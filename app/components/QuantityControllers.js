@@ -14,7 +14,10 @@ const QuantityControllers = ({ quantity, setQuantity }) => {
   return (
     <div className="">
       <button
-        onClick={handleDecrement}
+        onClick={(e) => {
+          e.stopPropagation();
+          return handleDecrement();
+        }}
         className="px-3 py-1 bg-teal-600 text-white font-bold rounded-l focus:outline-none hover:bg-teal-700"
       >
         -
@@ -23,7 +26,10 @@ const QuantityControllers = ({ quantity, setQuantity }) => {
         {quantity}
       </span>
       <button
-        onClick={handleIncrement}
+        onClick={(e) => {
+          e.stopPropagation();
+          return handleIncrement();
+        }}
         className="px-3 py-1 bg-teal-600 text-white font-bold rounded-r focus:outline-none hover:bg-teal-700"
       >
         +
