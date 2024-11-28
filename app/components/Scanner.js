@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { useStore } from "@/lib/context/StoreContext";
 import addToCart from "@/lib/utility/addToCart";
+import Image from "next/image";
+import Cart from "./Cart";
 
 const Scanner = () => {
   const { products, cart, setCart } = useStore();
@@ -64,7 +66,7 @@ const Scanner = () => {
 
       timeoutRef.current = setTimeout(() => {
         setResult(null);
-      }, 5000);
+      }, 2000);
     }
 
     return () => {
@@ -132,6 +134,7 @@ const Scanner = () => {
           <p>{result}</p>
         </div>
       )}
+      {cart?.length > 0 && <Cart />}
     </>
   );
 };
